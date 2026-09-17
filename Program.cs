@@ -12,4 +12,28 @@ class Program
         Student s2 = new Student("Anna");
         Student s3 = new Student("Erik");
 
-        
+ // 1. Registrering via Course
+        csharp.Enroll(s1);
+
+        // 2. Registrering via Student (tvåvägskoppling)
+        s2.Join(csharp);
+
+        // 3. Testar maxkapacitet (den tredje studenten ska inte läggas till)
+        csharp.Enroll(s3);
+
+        // 4. Visar studentlista och kursstatus
+        Console.WriteLine();
+        Console.WriteLine(csharp.ToString());
+        csharp.RollCall();
+
+        // 5. Visar Negars schema
+        Console.WriteLine();
+        s1.Schedule();
+
+        // 6. Testar avregistrering
+        Console.WriteLine();
+        s1.Leave(csharp);
+        Console.WriteLine(csharp.ToString()); // Ska visa 1 ledig plats
+    }
+}
+       
